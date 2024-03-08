@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-
+import './Styles/AdminLogin.css'
 
 export const AdminLogin = () => {
     const [email,setEmail]=useState("")

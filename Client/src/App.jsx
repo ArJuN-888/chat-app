@@ -9,6 +9,7 @@ import Chat from "./Components/Chat";
 import Home from "./Components/Home";
 import { useEffect, useState } from "react";
 import {io} from "socket.io-client"
+import { AdminLogin } from "./Components/AdminLogin";
 function App() {
     const [registerdata,setRegisterdata] = useState({username:"",password:""})
     const [loginData,setLogindata] = useState({username:"",password:""})
@@ -94,6 +95,7 @@ const contextdata = {
             <Route path="/Register" element={<Register/>}/>
             <Route path="/Home" element={<Home/>}/>
             <Route path="/Chat" element={<Chat/>}/>
+            <Route path="/Adminlogin" element={<AdminLogin/>}/>
          </Routes>
          </mycontext.Provider>
          </BrowserRouter> 

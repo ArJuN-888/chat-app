@@ -2,7 +2,7 @@ const express=require("express")
 const router=express.Router()
 const JWT=require("jsonwebtoken")
 const bcrypt=require("bcryptjs")
-const {adminModel} =require('../Models/Admin.js')
+const {adminModel} =require('../Model/Admin.js')
 
 
 router.post("/register",async(req,res)=>{

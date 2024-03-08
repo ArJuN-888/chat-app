@@ -4,6 +4,7 @@ const cors = require("cors")
 const userRoute = require("./Route/UserRoute")
 const  chatRoute = require("./Route/ChatRoute")
 const messageRoute = require("./Route/MessageRoute")
+const adminRoute = require('./Route/Admin.js')
 const app = express();
 const PORT = 5000;
 app.use(express.json())
@@ -15,8 +16,10 @@ const corsOptions = {
     optionsSuccessStatus: 204,  // Respond with 204 No Content for preflight requests
   };
   
-  app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
+
+app.use("/admin",adminRoute)
 
 app.use("/User",userRoute)
 app.use("/Chat",chatRoute)

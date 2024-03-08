@@ -14,7 +14,7 @@ websocket/Client/node_modules/
 # Ignore node_modules in the 'websocket/server' directory
 websocket/Server/node_modules/
 
-# Ignore node_modules in the 'websocket/socket' directory
+# Ignore node_modules in the 'websocket/socket'  directory
 websocket/Socket/node_modules/
 dist
 dist-ssr

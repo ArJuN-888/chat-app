@@ -1,17 +1,20 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import './Styles/AdminLogin.css'
-
+import { useNavigate } from 'react-router-dom'
 export const AdminLogin = () => {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
-
-
-    const submitButton = async() =>{
+ const nav = useNavigate()
+//Admin login function
+    const AdLogin = async() =>{
         try
         {
-            const response=await axios.post("http://localhost:5000/admin/login",{email,password})
+            const response=await axios.post("http://localhost:5000/Admin/login",{email,password})
             alert(response.data.message)
+           localStorage.setItem("adminID",response.data.adminID)
+           localStorage.setItem("adminName",response.data.admin.username)
+           nav("/Home")
             setEmail("")
             setPassword("")
         }
@@ -41,7 +44,7 @@ export const AdminLogin = () => {
                  onChange={(e)=>setPassword(e.target.value)}
                 />
                 <div className='but-section'>
-                    <button className='adm-button' onClick={()=>{submitButton()}}>Submit</button>
+                    <button className='adm-button' onClick={()=>{AdLogin()}}>Submit</button>
                 </div>
             </div>
         </div>

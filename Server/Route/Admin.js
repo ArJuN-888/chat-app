@@ -1,12 +1,13 @@
 const express=require("express")
 const router=express.Router()
+require("dotenv").config()
 const JWT=require("jsonwebtoken")
 const bcrypt=require("bcryptjs")
 const {adminModel} =require('../Model/Admin.js')
 
 
 router.post("/register",async(req,res)=>{
-    const {email,password}=req.body;
+    const {username,email,password}=req.body;
 
     const admin=await adminModel.findOne({email})
 
@@ -15,7 +16,7 @@ router.post("/register",async(req,res)=>{
     }
 
     const hashedPassword=await bcrypt.hash(password,10)
-    const newAdmin=new adminModel({email,password:hashedPassword})
+    const newAdmin=new adminModel({username,email,password:hashedPassword})
     await newAdmin.save()
     res.json({message:"Admin registered successfully!!! "})
 })
@@ -42,8 +43,8 @@ router.post("/login",async(req,res)=>{
         return res.status(400).json({message:"Invalid password !!"})
     }
 
-    const token = JWT.sign({id : admin._id},"secret")
-   return res.status(200).json({message:"Successfully logged-in",token:token,adminID:admin._id})
+    const token = JWT.sign({id : admin._id},process.env.SECRET)
+   return res.status(200).json({message:"Successfully logged-in",token:token,adminID:admin._id,admin})
 }
 catch(error)
 {

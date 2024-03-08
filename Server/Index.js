@@ -19,8 +19,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 
-app.use("/admin",adminRoute)
-
+app.use("/Admin",adminRoute)
 app.use("/User",userRoute)
 app.use("/Chat",chatRoute)
 app.use("/Message",messageRoute)

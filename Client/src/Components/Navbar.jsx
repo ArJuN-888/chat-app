@@ -52,6 +52,7 @@ export default function Navbar() {
         <li><button style={{border:"none",backgroundColor:"transparent"}} onClick={()=>{Logststate()}}><IoLogOutOutline style={{fontSize:"25px"}}/></button></li> 
         </>:<>
         <li><Link style={{textDecoration:"none"}} to="/Login">Login</Link></li>
+        <li><Link style={{textDecoration:"none"}} to="/Adminlogin">Admin-Login</Link></li>
         <li><Link style={{textDecoration:"none"}} to="/Register">Register</Link></li>
         </> }
         

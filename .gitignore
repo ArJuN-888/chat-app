@@ -8,14 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-# Ignore node_modules in the 'websocket/client' directory
-websocket/Client/node_modules/
 
-# Ignore node_modules in the 'websocket/server' directory
-websocket/Server/node_modules/
-
-# Ignore node_modules in the 'websocket/socket'  directory
-websocket/Socket/node_modules/
 dist
 dist-ssr
 *.local
